@@ -19,11 +19,11 @@ export function TransactionsProvider({ children }) {
         const newTransaction = {
             id: Date.now(),
             name: formData.name,
-            Date: new Date().toLocaleDateString("sq-XK"),
+            date: new Date().toLocaleDateString("sq-XK"),
             description: formData.description,
             category: formData.category,
             type: formData.type,
-            amount: formData.amount
+            amount: Number(formData.amount)
         }
 
         setTransactions([...transactions, newTransaction]);
@@ -44,12 +44,14 @@ export function TransactionsProvider({ children }) {
 
 
     return (
-        <TransactionsContext.Provider value={
+        <TransactionsContext.Provider value={{
             transactions,
             setTransactions,
             formData,
-            setFormData
-        }>
+            setFormData,
+            AddTransaction,
+            DeleteTransaction
+        }}>
             {children}
         </TransactionsContext.Provider>
     )
