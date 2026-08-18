@@ -3,12 +3,12 @@
 function TransactionCard({transaction}){
     return (
         <>
-            <p>{transaction.name}</p>
-            <p>{transaction.date}</p>
-            <p>{transaction.description}</p>
-            <p>{transaction.category}</p>
-            <p>{transaction.type}</p>
-            <p>{transaction.amount}</p>
+            <p>Name:{transaction.name}</p>
+            <p>Date:{transaction.date}</p>
+            <p>Description{transaction.description}</p>
+            <p>Category:{transaction.category}</p>
+            <p>Type:{transaction.type}</p>
+            <p>Amount:{transaction.amount}</p>
         </>
     )
 }

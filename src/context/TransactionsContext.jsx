@@ -44,7 +44,12 @@ export function TransactionsProvider({ children }) {
 
 
     return (
-        <TransactionsContext.Provider value={}>
+        <TransactionsContext.Provider value={
+            transactions,
+            setTransactions,
+            formData,
+            setFormData
+        }>
             {children}
         </TransactionsContext.Provider>
     )
