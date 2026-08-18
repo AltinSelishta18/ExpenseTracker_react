@@ -1,0 +1,40 @@
+.container{
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45vh;
+    width: 55%;
+    margin: 15% auto;
+}
+
+.formVisual{
+    width: 50%;
+    height: 100%;
+    background-color: gray;
+}
+
+.formular{
+    width: 50%;
+    height: 100%;
+    background-color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.formular form{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    gap: 15px;
+}
+
+.formular form input{
+    width: 80%;
+    height: 4vh;
+}
