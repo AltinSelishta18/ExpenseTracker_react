@@ -40,7 +40,16 @@ function TransactionForm(){
         else{
             AddTransaction()
         }
-        
+
+        setFormData({
+            name: "",
+            date: "",
+            description: "",
+            category: "",
+            type: "",
+            amount: ""
+        })
+
         setModal(false)
 
     }
@@ -73,7 +82,7 @@ function TransactionForm(){
                         <option value="Income">Income</option>
                     </select>
                     <input type="number" name="amount" value={formData.amount} onChange={handleChange} id="" autoComplete="off" placeholder="Transaction Amount"/>
-                    <button>Add Transaction</button>
+                    <button>{formData.id !== null ? "Save Transaction" : "Add Transaction"}</button>
                 </form>
             </div>
         </div>

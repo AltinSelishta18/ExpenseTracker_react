@@ -1,11 +1,14 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 //This component will contain the main and core logics of the Expense Tracker App
 
 export const TransactionsContext = createContext();
 
 export function TransactionsProvider({ children }) {
-    const [transactions, setTransactions] = useState([]);
+    const [transactions, setTransactions] = useState(() => {
+        const savedTransactions = JSON.parse(localStorage.getItem("transaction")) || [];
+        return savedTransactions
+    });
     const [modal, setModal] = useState(false)
     const [formData, setFormData] = useState({
         name: "",
@@ -47,17 +50,24 @@ export function TransactionsProvider({ children }) {
         const editedTransaction = transactions.find(transaction => transaction.id === id);
 
         setFormData({...editedTransaction})
+
         setModal(true)
     }
 
-    function SaveEditedTransaction(id){
+    function SaveEditedTransaction(){
         const updatedTransaction = transactions.map(transaction => transaction.id === formData.id
-            ? {...formData} 
+            ? {...formData, amount: Number(formData.amount)} 
             : transaction
         )
 
         setTransactions(updatedTransaction)
     }
+
+    
+
+    useEffect(() =>{
+        localStorage.setItem("transaction", JSON.stringify(transactions))
+    }, [transactions])
 
 
     return (

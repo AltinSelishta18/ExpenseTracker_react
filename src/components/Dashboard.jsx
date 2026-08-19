@@ -10,9 +10,9 @@ function Dashboard() {
     return (
         <>
             <div className={DashboardStyle.DashBoardContainer}>
-                <div style={{color: balance > 0 ? "green" : "red"}} className={DashboardStyle.transaction}>Balance: {balance}</div>
-                <div style={{color: income === 0 ? "black" : "green"}} className={DashboardStyle.transaction}>Income: {income > 0 ? "+" + income : income}</div>
-                <div style={{color: expense === 0 ? "black" : "red"}} className={DashboardStyle.transaction}>Expense: {expense > 0 ? "-" + expense: expense}</div>
+                <div style={{color: balance > 0 ? "green" : "red"}} className={DashboardStyle.transaction}>Balance: {balance.toFixed(2)}</div>
+                <div style={{color: income === 0 ? "black" : "green"}} className={DashboardStyle.transaction}>Income: {income > 0 ? `${income.toFixed(2)}` : income}</div>
+                <div style={{color: expense === 0 ? "black" : "red"}} className={DashboardStyle.transaction}>Expense: {expense > 0 ? `- ${expense.toFixed(2)}`: expense}</div>
                 <div className={DashboardStyle.transaction}>Transactions: {countTransactions}</div>
             </div>
         </>
