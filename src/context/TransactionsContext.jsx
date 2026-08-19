@@ -6,6 +6,7 @@ export const TransactionsContext = createContext();
 
 export function TransactionsProvider({ children }) {
     const [transactions, setTransactions] = useState([]);
+    const [modal, setModal] = useState(false)
     const [formData, setFormData] = useState({
         name: "",
         date: "",
@@ -42,6 +43,22 @@ export function TransactionsProvider({ children }) {
         setTransactions(transactions.filter(transaction => transaction.id !== id))
     }
 
+    function EditTransaction(id){
+        const editedTransaction = transactions.find(transaction => transaction.id === id);
+
+        setFormData({...editedTransaction})
+        setModal(true)
+    }
+
+    function SaveEditedTransaction(id){
+        const updatedTransaction = transactions.map(transaction => transaction.id === formData.id
+            ? {...formData} 
+            : transaction
+        )
+
+        setTransactions(updatedTransaction)
+    }
+
 
     return (
         <TransactionsContext.Provider value={{
@@ -50,7 +67,11 @@ export function TransactionsProvider({ children }) {
             formData,
             setFormData,
             AddTransaction,
-            DeleteTransaction
+            DeleteTransaction,
+            EditTransaction,
+            modal,
+            setModal,
+            SaveEditedTransaction
         }}>
             {children}
         </TransactionsContext.Provider>

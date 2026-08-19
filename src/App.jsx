@@ -1,13 +1,12 @@
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { TransactionsContext, TransactionsProvider } from "./context/TransactionsContext"
-import TransactionList from "./components/TransactionList"
-import TransactionForm from "./components/TransactionForm"
+import AppContent from "./components/AppContent"
 
 function App() {
+    const [modal, setModal] = useState(false)
     return(
         <TransactionsProvider>
-            <TransactionList />
-            <TransactionForm />
+            <AppContent />
         </TransactionsProvider>
     )
 }

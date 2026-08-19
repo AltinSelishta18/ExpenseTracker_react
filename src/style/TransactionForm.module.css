@@ -1,5 +1,4 @@
 .container{
-    background-color: red;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,17 +10,46 @@
 .formVisual{
     width: 50%;
     height: 100%;
-    background-color: gray;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: rgb(0, 46, 0);
+    color: #fff;
+    font-family: sans-serif;
+    font-weight: 100;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+}
+
+.formVisual h1{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 4%;
+}
+.formVisual button{
+    position: absolute;
+    top: 8.5%;
+    right: 5%;
+    background-color: transparent;
+    color: #fff;
+    font-size: 1.2rem;
+    border: none;
 }
 
 .formular{
     width: 50%;
     height: 100%;
-    background-color: blue;
+    background-color: #fff;
     display: flex;
+    border: 1px solid rgb(0, 46, 0);
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 .formular form{
@@ -37,4 +65,28 @@
 .formular form input{
     width: 80%;
     height: 4vh;
+    font-family: sans-serif;
+    font-weight: 600;
+}
+
+.formular form select{
+    width: 80%;
+    height: 4vh;
+    font-family: sans-serif;
+}
+
+.formular form button{
+    width: 80%;
+    height: 5vh;
+    border: none;
+    border-radius: 8px;
+    font-family: sans-serif;
+    font-weight: 700;
+    background-color: rgb(0, 46, 0);
+    transition: background-color 0.3s linear;
+    color: #fff;
+}
+
+.formular form button:hover{
+    background-color: rgb(0, 85, 0);
 }

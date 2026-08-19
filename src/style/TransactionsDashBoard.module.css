@@ -1,0 +1,19 @@
+.DashBoardContainer{
+    margin: 4% auto;
+    width: 90%;
+    height: 25vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.transaction{
+    border: 1px solid black;
+    width: 25%;
+    height: 25vh;
+    font-family: sans-serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    
+}

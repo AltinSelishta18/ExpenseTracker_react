@@ -8,7 +8,14 @@ function TransactionForm(){
     const { formData,
             setFormData,
             AddTransaction, 
+            modal,
+            setModal,
+            SaveEditedTransaction
         } = useContext(TransactionsContext)
+
+        if(!modal){
+            return null
+        }
         
     function handleChange(e){
         const {name, value} = e.target;
@@ -27,29 +34,29 @@ function TransactionForm(){
             return;
         }
 
-        AddTransaction();
+        if(formData.id){
+            SaveEditedTransaction();
+        }
+        else{
+            AddTransaction()
+        }
+        
+        setModal(false)
 
-        setFormData({
-            name: "",
-            date: "",
-            description: "",
-            category: "",
-            type: "",
-            amount: ""
-        })
     }
 
     return (
         <div className={TransactionFormStyle.container}>
             <div className={TransactionFormStyle.formVisual}>
-                <h1>Form Design</h1>
+                <h1>Add Transaction</h1>
+                <button onClick={() => setModal(false)}>X</button>
             </div>
             <div className={TransactionFormStyle.formular}>
                 <form action="" onSubmit={SubmitForm}>
-                    <input type="text" name="name" value={formData.name} onChange={handleChange} />
-                    <input type="text" name="description" value={formData.description} onChange={handleChange} />
-                    <select name="category" value={formData.category} onChange={handleChange} id="">
-                        <option value="Select Category">Select Category</option>
+                    <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Transaction Name" autoComplete="off"/>
+                    <input type="text" name="description" value={formData.description} onChange={handleChange} placeholder="Transaction Description" autoComplete="off" />
+                    <select name="category" value={formData.category} onChange={handleChange} id="" autoComplete="off">
+                        <option value="">Select Category</option>
                         <option value="Food">Food</option>
                         <option value="Transport">Transport</option>
                         <option value="Shopping">Shopping</option>
@@ -60,12 +67,12 @@ function TransactionForm(){
                         <option value="Subscription">Subscription</option>
                         <option value="Other">Other</option>
                     </select>
-                    <select name="type" value={formData.type} onChange={handleChange} id="">
-                        <option value="Transaction Type">Transaction Type</option>
+                    <select name="type" value={formData.type} onChange={handleChange} id="" autoComplete="off">
+                        <option value="">Transaction Type</option>
                         <option value="Expense">Expense</option>
                         <option value="Income">Income</option>
                     </select>
-                    <input type="number" name="amount" value={formData.amount} onChange={handleChange} id="" />
+                    <input type="number" name="amount" value={formData.amount} onChange={handleChange} id="" autoComplete="off" placeholder="Transaction Amount"/>
                     <button>Add Transaction</button>
                 </form>
             </div>
