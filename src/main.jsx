@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import DashBoard from "./components/Dashboard.jsx"
 import TransactionList from "./components/TransactionList.jsx"
 import TransactionForm from "./components/TransactionForm.jsx"
+import TransactionDetails from "./components/transactionDetails.jsx";
 
 const router = createBrowserRouter([
     {
@@ -14,15 +15,27 @@ const router = createBrowserRouter([
         children: [
             {
                 index: true,
-                element: <DashBoard />
+                element: null
             },
             {
-                path: "/newTransaction",
+                path: "newTransaction",
                 element: <TransactionForm />
             },
             {
-                path: "/transactionsHistory",
+                path: "transactionsHistory",
                 element: <TransactionList />
+            },
+            {
+                path: "Dashboard",
+                element: <DashBoard />
+            },
+            {
+                path: "TransactionForm/:id",
+                element: <TransactionForm />
+            },
+            {
+                path: "transactionDetail/:id",
+                element: <TransactionDetails />
             }
 
 

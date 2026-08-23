@@ -1,21 +1,41 @@
 //This component will handle the formular where we can add and edit an transaction
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import { TransactionsContext } from "../context/TransactionsContext"
 import TransactionFormStyle from "../style/TransactionForm.module.css"
+import { useParams } from "react-router-dom"
 
 
 function TransactionForm(){
+
     const { formData,
             setFormData,
             AddTransaction, 
-            modal,
-            setModal,
-            SaveEditedTransaction
+            SaveEditedTransaction,
+            transactions
         } = useContext(TransactionsContext)
+    
+    const { id } = useParams();
 
-        if(!modal){
-            return null
+    const transaction = transactions.find(transaction => transaction.id === Number(id));
+
+    useEffect(() =>{
+        if(transaction){
+            setFormData({...transaction})
         }
+        else{
+            setFormData({
+                name: "",
+                date: "",
+                description: "",
+                category: "",
+                type: "",
+                amount: ""
+            })
+        }
+    }, [transaction])
+
+
+
         
     function handleChange(e){
         const {name, value} = e.target;
@@ -50,7 +70,6 @@ function TransactionForm(){
             amount: ""
         })
 
-        setModal(false)
 
     }
 
@@ -58,7 +77,6 @@ function TransactionForm(){
         <div className={TransactionFormStyle.container}>
             <div className={TransactionFormStyle.formVisual}>
                 <h1>Add Transaction</h1>
-                <button onClick={() => setModal(false)}>X</button>
             </div>
             <div className={TransactionFormStyle.formular}>
                 <form action="" onSubmit={SubmitForm}>
@@ -82,7 +100,7 @@ function TransactionForm(){
                         <option value="Income">Income</option>
                     </select>
                     <input type="number" name="amount" value={formData.amount} onChange={handleChange} id="" autoComplete="off" placeholder="Transaction Amount"/>
-                    <button>{formData.id !== null ? "Save Transaction" : "Add Transaction"}</button>
+                    <button>{formData.id ? "Save Transaction" : "Add Transaction"}</button>
                 </form>
             </div>
         </div>

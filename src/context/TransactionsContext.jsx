@@ -9,7 +9,7 @@ export function TransactionsProvider({ children }) {
         const savedTransactions = JSON.parse(localStorage.getItem("transaction")) || [];
         return savedTransactions
     });
-    const [modal, setModal] = useState(false)
+    
     const [formData, setFormData] = useState({
         name: "",
         date: "",
@@ -46,13 +46,6 @@ export function TransactionsProvider({ children }) {
         setTransactions(transactions.filter(transaction => transaction.id !== id))
     }
 
-    function EditTransaction(id){
-        const editedTransaction = transactions.find(transaction => transaction.id === id);
-
-        setFormData({...editedTransaction})
-
-        setModal(true)
-    }
 
     function SaveEditedTransaction(){
         const updatedTransaction = transactions.map(transaction => transaction.id === formData.id
@@ -78,9 +71,6 @@ export function TransactionsProvider({ children }) {
             setFormData,
             AddTransaction,
             DeleteTransaction,
-            EditTransaction,
-            modal,
-            setModal,
             SaveEditedTransaction
         }}>
             {children}

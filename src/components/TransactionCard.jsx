@@ -3,21 +3,19 @@
 import TransactionCardStyle from "../style/TransactionCardStyle.module.css"
 import { useContext } from "react"
 import { TransactionsContext } from "../context/TransactionsContext"
+import { Link } from "react-router-dom"
 
 function TransactionCard({transaction}){
     const {  DeleteTransaction, EditTransaction } = useContext(TransactionsContext)
     return (
         <>
             <div className={TransactionCardStyle.card}>
-                <p>Name: {transaction.name}</p>
-                <p>Date: {transaction.date}</p>
-                <p>Description: {transaction.description}</p>
-                <p>Category: {transaction.category}</p>
-                <p>Type: {transaction.type}</p>
-                <p>Amount: {transaction.amount}$</p>
+                <p><b>Name:</b> {transaction.name}</p>
+                <p><b>Amount:</b> {transaction.amount}$</p>
                 <div className={TransactionCardStyle.buttons}>
                     <button onClick={() =>  DeleteTransaction(transaction.id)}>X</button>
-                    <button onClick={() => EditTransaction(transaction.id)}>&#9998;</button>
+                    <Link className={TransactionCardStyle.btn} to={`/TransactionForm/${transaction.id}`}>&#9998;</Link>
+                    <Link to={`/transactionDetail/${transaction.id}`} className={TransactionCardStyle.btn}>&#9432;</Link>
                 </div>
             </div>
         </>
