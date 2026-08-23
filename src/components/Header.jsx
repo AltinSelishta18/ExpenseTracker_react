@@ -5,6 +5,9 @@ function Header(){
     return(
         <>
             <header className={HeaderStyle.header}>
+                <div className={HeaderStyle.logo}>
+                    <h1>MoneyFlow</h1>
+                </div>
                 <nav className={HeaderStyle.nav}>
                     <Link className={HeaderStyle.link} to="/">Home</Link>
                     <Link className={HeaderStyle.link} to="/newTransaction">New Transaction</Link>

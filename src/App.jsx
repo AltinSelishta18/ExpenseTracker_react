@@ -5,9 +5,11 @@ import { Link } from "react-router-dom"
 
 function App() {
     return(
-        <TransactionsProvider>
-            <AppContent />
-        </TransactionsProvider>
+        <div>
+            <TransactionsProvider>
+                <AppContent />
+            </TransactionsProvider>
+        </div>
     )
 }
 

@@ -77,9 +77,6 @@ function TransactionForm(){
 
     return (
         <div className={TransactionFormStyle.container}>
-            <div className={TransactionFormStyle.formVisual}>
-                <h1>Add Transaction</h1>
-            </div>
             <div className={TransactionFormStyle.formular}>
                 <form action="" onSubmit={SubmitForm}>
                     <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Transaction Name" autoComplete="off"/>

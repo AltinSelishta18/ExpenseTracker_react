@@ -7,6 +7,7 @@ import DashBoard from "./components/Dashboard.jsx"
 import TransactionList from "./components/TransactionList.jsx"
 import TransactionForm from "./components/TransactionForm.jsx"
 import TransactionDetails from "./components/transactionDetails.jsx";
+import "./style/global.css";
 
 const router = createBrowserRouter([
     {
