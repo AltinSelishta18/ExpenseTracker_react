@@ -61,6 +61,8 @@ function TransactionForm(){
             AddTransaction()
         }
 
+        alert("Transaksioni u krye me sukses!")
+
         setFormData({
             name: "",
             date: "",
@@ -99,7 +101,7 @@ function TransactionForm(){
                         <option value="Expense">Expense</option>
                         <option value="Income">Income</option>
                     </select>
-                    <input type="number" name="amount" value={formData.amount} onChange={handleChange} id="" autoComplete="off" placeholder="Transaction Amount"/>
+                    <input type="number" name="amount" value={Number(formData.amount).toFixed(2)} onChange={handleChange} id="" autoComplete="off" placeholder="Transaction Amount"/>
                     <button>{formData.id ? "Save Transaction" : "Add Transaction"}</button>
                 </form>
             </div>

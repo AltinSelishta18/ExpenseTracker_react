@@ -1,7 +1,6 @@
 import { useContext } from "react"
 import { TransactionsContext } from "../context/TransactionsContext"
 import { useParams } from "react-router-dom";
-import TransactionDetailStyle from "../style/TransactionDetail.module.css"
 function TransactionDetails(){
     const { transactions } = useContext(TransactionsContext);
     const { id } = useParams();
@@ -10,7 +9,7 @@ function TransactionDetails(){
 
     return(
         <>  
-            <div className={TransactionDetailStyle.container}>
+            <div>
                  {transaction_details && (
                     <div>
                         <p><b>Name:</b>{transaction_details.name}</p>
