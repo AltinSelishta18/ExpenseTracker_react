@@ -9,11 +9,16 @@
 }
 
 .transaction{
-    border: 1px solid black;
     width: 25%;
     height: 25vh;
     font-family: sans-serif;
     font-size: 1.7rem;
     font-weight: 700;
-    
+    background-color: rgba(255, 255, 255, 0.103);
+    backdrop-filter: blur(15px);
+    border-radius: 9px;
+}
+
+.type{
+    color: #fff;
 }

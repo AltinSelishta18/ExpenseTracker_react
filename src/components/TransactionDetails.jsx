@@ -9,7 +9,7 @@ function TransactionDetails(){
 
     return(
         <>  
-            <div>
+            <div className="TransactionDetails">
                  {transaction_details && (
                     <div>
                         <p><b>Name:</b>{transaction_details.name}</p>

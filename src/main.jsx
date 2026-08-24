@@ -37,6 +37,10 @@ const router = createBrowserRouter([
             {
                 path: "transactionDetail/:id",
                 element: <TransactionDetails />
+            },
+            {
+                path: "transactionsHistory",
+                element: <TransactionList />
             }
 
 

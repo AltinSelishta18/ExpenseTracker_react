@@ -3,9 +3,11 @@ import { useContext, useEffect } from "react"
 import { TransactionsContext } from "../context/TransactionsContext"
 import TransactionFormStyle from "../style/TransactionForm.module.css"
 import { useParams } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 
 function TransactionForm(){
+    const navigate = useNavigate()
 
     const { formData,
             setFormData,
@@ -63,6 +65,8 @@ function TransactionForm(){
 
         alert("Transaksioni u krye me sukses!")
 
+        navigate("/transactionsHistory")
+
         setFormData({
             name: "",
             date: "",
@@ -98,7 +102,7 @@ function TransactionForm(){
                         <option value="Expense">Expense</option>
                         <option value="Income">Income</option>
                     </select>
-                    <input type="number" name="amount" value={Number(formData.amount).toFixed(2)} onChange={handleChange} id="" autoComplete="off" placeholder="Transaction Amount"/>
+                    <input type="number" name="amount" value={formData.amount} onChange={handleChange} id="" autoComplete="off" placeholder="Transaction Amount"/>
                     <button>{formData.id ? "Save Transaction" : "Add Transaction"}</button>
                 </form>
             </div>

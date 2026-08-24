@@ -10,7 +10,7 @@
 .formular{
     width: 50%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.151);
+    background-color: rgba(255, 255, 255, 0.137);
     backdrop-filter: blur(5px);
     display: flex;
     justify-content: center;
@@ -32,42 +32,46 @@
 
 .formular form input{
     width: 80%;
-    height: 4vh;
+    height: 5vh;
     font-family: sans-serif;
     font-weight: 600;
-    padding: 4%;
-    border: 3px solid rgba(255, 255, 255, 0.308);
+    border: 3px solid rgba(0, 0, 0, 0.322);
     background-color: transparent;
     color: #fff;
+    border-radius: 9px;
+    padding-left: 2%;
 }
 
 .formular form input::placeholder{
     color: #fff;
 }
 
+.formular form input:focus::placeholder{
+    color: #cac9c981;
+}
+
 .formular form input:focus{
-    color: #fff;
+    outline: none;
 }
 
 .formular form select{
     width: 80%;
-    height: 4vh;
-    padding: 4%;
+    height: 5vh;
     background-color: transparent;
-    font-family: sans-serif;
-    border: 3px solid rgba(255, 255, 255, 0.308);
-    color: white;
-    background-color: rgba(0, 0, 0, 0.185);
+    color: #fff;
+    padding-left: 2%;
+    border-radius: 9px;
+    border: 3px solid rgba(0, 0, 0, 0.322);
 }
 
 .formular form select:focus{
-    color: #fff;
+    outline: none;
 }
 
-.formular form option{color: #000;}
-
-.formular form select::placeholder{
-    color: #fff;
+.formular form option{
+    background-color: rgb(0, 75, 44);
+    font-family: sans-serif;
+    font-weight: 600;
 }
 
 .formular form button{
