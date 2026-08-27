@@ -7,6 +7,8 @@ import DashBoard from "./components/Dashboard.jsx"
 import TransactionList from "./components/TransactionList.jsx"
 import TransactionForm from "./components/TransactionForm.jsx"
 import TransactionDetails from "./components/transactionDetails.jsx";
+import LoginForm from "./components/LoginForm.jsx";
+import ProtectedRoute from "./components/ProtectedRoute.jsx";
 import "./style/global.css";
 
 const router = createBrowserRouter([
@@ -19,28 +21,29 @@ const router = createBrowserRouter([
                 element: null
             },
             {
-                path: "newTransaction",
-                element: <TransactionForm />
-            },
-            {
-                path: "transactionsHistory",
-                element: <TransactionList />
-            },
-            {
                 path: "Dashboard",
                 element: <DashBoard />
             },
             {
-                path: "TransactionForm/:id",
-                element: <TransactionForm />
+                path: "LoginForm",
+                element: <LoginForm />
             },
             {
-                path: "transactionDetail/:id",
-                element: <TransactionDetails />
-            },
-            {
-                path: "transactionsHistory",
-                element: <TransactionList />
+                element: <ProtectedRoute />,
+                children: [
+                        {
+                            path: "newTransaction",
+                            element: <TransactionForm />
+                        },
+                        {
+                            path: "transactionsHistory",
+                            element: <TransactionList />
+                        },
+                        {
+                            path: "transactionDetail/:id",
+                            element: <TransactionDetails />
+                        }
+                ]
             }
 
 
